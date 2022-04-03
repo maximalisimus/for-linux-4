@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/home/mikl/programs/shutdown-poweroff.sh
+Type=Application
+Name=Shutdown
+Terminal=false
+Icon=/home/mikl/programs/poweroff-icon.png

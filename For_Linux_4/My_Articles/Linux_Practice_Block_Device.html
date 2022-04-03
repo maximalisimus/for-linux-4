@@ -1,0 +1,748 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.2.2.2 (Linux)"/>
+	<meta name="created" content="2020-04-09T22:39:19"/>
+	<meta name="changed" content="2021-11-21T22:00:43.915459560"/>
+	<meta name="AppVersion" content="15.0000"/>
+	<style type="text/css">
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: ru-RU }
+		p.cjk { font-family: "AR PL New Sung"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "DejaVu Sans"; font-size: 12pt; so-language: hi-IN }
+		h1 { color: #000000; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.21cm; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", sans-serif; font-size: 24pt; so-language: ru-RU; font-weight: bold }
+		h1.cjk { font-family: "AR PL New Sung"; font-size: 24pt; so-language: zh-CN; font-weight: bold }
+		h1.ctl { font-family: "DejaVu Sans"; font-size: 24pt; so-language: hi-IN; font-weight: bold }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		strong { font-weight: bold }
+		em { font-style: italic }
+	</style>
+</head>
+<body lang="ru-RU" text="#000000" link="#000080" vlink="#800000" dir="ltr"><p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<a href="https://vk.com/feed?section=search&amp;q=%23bash"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#bash</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23DD"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#DD</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23Qemu"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Qemu</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23VirtualBox"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#VirtualBox</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23VBOX"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#VBOX</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23QemuImg"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#QemuImg</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23VHD"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#VHD</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23FAT32"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#FAT32</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23VFAT"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#VFAT</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23RAW"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#RAW</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23NTFS"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#NTFS</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23EXT4"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#EXT4</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23mkfs"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#mkfs</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23mkdir"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#mkdir</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23mount"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#mount</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23umount"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#umount</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23modprobe"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#modprobe</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23Parted"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Parted</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23GParted"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#GParted</span></span></span></font></font></span></span></a><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><a href="https://vk.com/feed?section=search&amp;q=%23VeraCrypt"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#VeraCrypt</span></span></span></font></font></span></span></a><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+<br/>
+</font></font><img src="https://vk.com/emoji/e/f09f92bd.png" name="Изображение1" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Часть
+№4. Практика с блочными устройствами.</span></span></span></font></font></font></span><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+</font></font><img src="https://vk.com/emoji/e/e299bb.png" name="Изображение2" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">
+</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Статья
+большая - тесно перекликается с 3-мя
+предыдущими.<br/>
+<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f9887.png" name="Изображение3" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Прошу простить за большой размер
+скриншотов, которые приходится
+скролить...<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f9189f09f8fbb.png" name="Изображение4" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+У ВК есть одна маааленькая и веселая
+особенность!<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f9180.png" name="Изображение5" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Если в посте есть СТАТЬЯ, то при
+прикреплении более 9 фото, статья уходит
+в небытие и больше не прикрепляется к
+данному посту.<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f9285f09f8fbb.png" name="Изображение6" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Удалем пост, создаем заново, пытемся с
+9 фото - ууф, ну вроде нормально... </span></span></span></font></font></font></span>
+<img src="https://vk.com/emoji/e/f09f9881.png" name="Изображение7" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f92aaf09f8fbb.png" name="Изображение8" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Поэтому сегодня и в статье и на практике
+впихиваем невпихуемое и радуемся жизни!
+</span></span></span></font></font></font></span>
+<img src="https://vk.com/emoji/e/f09fa49ff09f8fbb.png" name="Изображение9" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><br/>
+<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f939a.png" name="Изображение10" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Сегодня
+применим теорию о блочных устройствах
+на практике.<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f939d.png" name="Изображение11" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+А также конвертируем ISO образ в архив.<br/>
+<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f938c.png" name="Изображение12" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ну
+а с вами как всегда был Shadow.<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09f939d.png" name="Изображение13" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Подписывайтесь на канал, ставьте лайки,
+комментируйте.<br/>
+</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/f09fa49df09f8fbb.png" name="Изображение14" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+Всем Добра и Удачи!</span></span></span></font></font></font></span><img src="Linux_Practice_Block_Device_html_f3c98a66b1e66026.gif" name="Фигура1" alt="Фигура1" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<h1 class="western" align="left"><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Geneva, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif, arial, Tahoma, verdana"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Диск
+Диску рознь. Вроде диск, а вроде нет.</span></span></span></font></font></font></span></h1>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 1.06cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Во
+2-й статье в конце мы говорили, что есть
+ещё один способ создание образа из
+папки, который гарантирует целостность
+ваших данных.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Сделать
+это можно с помощью утилиты dd. Фактически,
+это аналог утилиты копирования файлов
+cp только для блочных данных.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Утилита
+просто переносит по одному блоку данных
+указанного размера с одного места в
+другое.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Поскольку
+в Linux все, в том числе, устройства,
+считается файлами, вы можете переносить
+устройства в файлы и наоборот.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">С
+помощью различных опций утилиты можно
+повлиять на размер блока, а это, в свою
+очередь, уже влияет на скорость работы
+программы.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Однако,
+она работает только с блочными
+устройствами, т.е. преобразовать папку
+напрямую в образ нельзя.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Тогда
+как dd может помочь?</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Всё
+достаточно просто. Создадим виртуальный
+RAW диск и на весь диск одну файловую
+систему. Отформатируем, примонтируем,
+скопируем туда наши данные. И уже как с
+блочного устройство loop0 просто создадим
+образ диска.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Единственное,
+что нам необходимо будет помнить, что
+в итоге это всё-таки не совсем именно
+ISO-образ. Да, это образ, но он как-бы
+содержит в себе таблицу разделов нашего
+виртуального диска.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Мы
+можем убедиться в этом, если примонтируем
+полученный ISO-файл и посмотрим на тип
+раздела loop устройства. Не все архиваторы
+могут прочитать такой образ. Если при
+использовании genisoimage по сути по большей
+части получается архив с форматом
+данных, то здесь именно образ виртуального
+диска.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">При
+чтении с помощью 7z мы увидим там 2 новых
+папки - [SYS] и lost+found.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Однако,
+его всё равно можно открыть и в Linux и в
+Windows. 7zip прекрасно читает. Консольный
+7z Linux тоже.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+dd if=/dev/zero of=raw.img bs=1M count=2560</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+mkfs -t ext4 raw.img</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+mkdir -p ./raw &amp;&amp; sudo mount -t auto -o loop raw.img ./raw</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo chown mikl:users ./raw &amp;&amp; sudo chmod 777 ./raw</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo umount -l ./raw &amp;&amp; sudo rm -rf ./raw</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Чтобы
+конвертировать ISO образ даже такого
+диска как выше в архив существует как
+минимум 2 способа:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">1)
+Необходимо примонтировать диск,
+заархвировать полученные данные и
+размонтировать диск.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">2)
+Образ можно просто распаковать с помощью
+7z во временную директорию, удалить
+каталоги [SYS] и lost+found, упаковать в архив,
+и удалить временную директорию.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">К
+сожалению других вариантов нет.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Во
+2-м способе можно немного поиграться с
+архиватором 7z. В каждом из вариантов
+есть свои преимущества и недостатки.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+примера пусть будет образ image.iso, временные
+папки script (или temp), архив archive.7z:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">1)
+$ mkdir -p script &amp;&amp; 7z x image.iso -o./script/ &amp;&amp; rm
+-rf ./script/[SYS] ./script/lost+found &amp;&amp; tar -czf
+archive.tar.gz script/ &amp;&amp; rm -rf ./script</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">2)
+$ mkdir -p temp &amp;&amp; mv image.iso ./temp/ &amp;&amp; cd ./temp
+&amp;&amp; 7z x image.iso &amp;&amp; 7z a '-x!image.iso' '-x![SYS]'
+'-x!lost+found' -t7z -mx7 ../archive.7z &amp;&amp; mv image.iso ../
+&amp;&amp; cd ../ &amp;&amp; rm -rf ./temp/</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">3)
+$ 7z a '-x!disk/[SYS]' '-x!disk/lost+found' -t7z -mx7 archive.7z
+./disk</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">4)
+$ cd ./disk &amp;&amp; 7z a '-x![SYS]' '-x!lost+found' -t7z -mx7
+../archive.7z &amp;&amp; cd ../</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Обратите
+внимание что в любом из вариантов
+исключение или удаление sys и lost+found
+происходит по относительному пути. Т.е.
+при их наличии в одной из поддиректорий
+- их тоже надо указывать.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Переходим
+к созданию более правильного RAW диска,
+при конвертации которого, Windows сможет
+его корректно прочитать.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Но
+оставим и предыдущий вариант с одной
+файловой системой на весь диск - для
+тестов. Он прекрасно подходит для QEMU и
++ мы сможем работать с таким диском, без
+каких-либо дополнительных утилит.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Если
+нам нужно использовать последний
+правильный RAW-диск не только в Linux, но и
+в Windows, тогда мы можем либо конвертировать,
+либо аналогично создать сразу подходящий
+диск без конвертации.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Но
+пока создадим именно первый вариант
+диска. Для создания таблицы разделов и
+самих разделов будем использовать
+parted.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В
+ней необходимо помнить 2 важных правила:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">1)
+При создании нового раздела смещать
+его относительно предыдущего на 1MB или
+1MiB.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">2)
+Указывать размеры можно не только в
+MB(kB,GB, MiB...), но и в процентах.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+dd if=/dev/zero of=raw.img bs=4096k count=640</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s raw.img print</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s raw.img mklabel msdos</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+или parted -s raw.img mklabel gpt</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s raw.img mkpart primary ntfs 1MiB 100%</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+Если у вас GPT таблица, можете, при
+необходимости, создать ESP раздел для
+UEFI вот так:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+parted -s DEVICE mkpart ESP fat32 1MiB 513MiB</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+А для указания загрузочного раздела в
+любой из таблиц, воспользуйтесь такой
+командой:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+parted -s DEVICE set 1 boot on</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+Где DEVICE устройство с которым вы работаете.
+Это может быть, как у меня образ диска,
+а может и указанный диск. Именно диск,
+а не раздел диска!</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+Например, /dev/sdb или /dev/sdc. Далее по
+скриншотам будет более понятно на
+конкретных примерах.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s raw.img print</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">У
+всех виртуальных дисков есть один
+недостаток. При создании таблицы разделов
+изменений сразу может быть не видно,
+пока диск не будет пере-подключен!</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">С
+таким RAW-диском уже не получится работать
+как с одно-файловым и монтировать в виде
+лазерного диска в loop0.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+этого нам понадобится утилита для
+блочных устройств, а для файловых систем
+NTFS и FAT32 соответственно 2 других утилиты.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo pacman -S nbd ntfs-3g dosfstools --noconfirm</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo modprobe nbd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Подключаем,
+форматируем, отключаем.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -c /dev/nbd0 ./raw.img</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Вообще
+мы можем таким образом подключить любой
+диск - VDI, VHD, VMDK, VHDX, RAW.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">И
+затем уже создавать на них таблицу
+разделов с помощью cfdisk, cgdisk, gparted, parted…</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+Linux и qemy-nbd никакой разницы нет.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+lsblk -o NAME,MODEL,TYPE,FSTYPE,SIZE,MOUNTPOINT /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+mkfs -t ntfs /dev/nbd0p1</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Обратите
+внимание, что для файловой системы NTFS
+устройство обязательно должно быть
+блочным. Иначе mkfs выдаст ошибку.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Нельзя
+просто взять и отформатировать весь
+диск только под NTFS. Нужен хотя бы один
+раздел, который и будет отформатирован
+в последний.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Из
+вышеуказанной особенности виртуальных
+дисков, пере-подключаем, копируем туда
+данные. Отключаем и конвертируем в
+другой формат.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+отключения воспользуйтесь следующей
+командой:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -d /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Проверяем,
+конвертируем.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s raw.img print</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-img convert -p -f raw -O vdi raw.img raw_vdi.vdi</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+raw(img) vpc(vhd) vdi(vdi) vhdx(vhdx) qcow2(qcow)</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+разных форматов просто берем указанные
+перед скобками значения, а расширения
+подставляем из скобок.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-img convert -p -f raw -O vpc raw.img raw_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Подключаем
+через qemu-nbd, проверяем. Не забываем по
+окончании работы с диском сначала
+размонтировать их, затем отключить в
+qemu-nbd.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Иначе,
+у вас начнутся большие неприятности.
+Просто посыпятся куча ошибок, которые
+уже не удастся исправить без перезагрузки.
+Запомните порядок. </span></span></span></font></font></span><strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>В
+каком подключали, в таком в обратном
+порядке и отключаете.</b></span></span></font></font></span></strong></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Мы
+могли бы сразу создать образ виртуального
+диска в любом из форматов, не особо
+заморачиваясь.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-img create -f vpc -o size=4G ./image_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+или так: qemu-img create -f qcow2 hard.qcow 30G</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+raw(img) vpc(vhd) vdi(vdi) vhdx(vhdx) qcow2(qcow)</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Аналогично
+подставляем необходимые параметры.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Далее
+просто подключайте образ к виртуальной
+машине и всё. Уже внутри машины силами
+самих ОС будут созданы необходимые
+разделы, при необходимости.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Единственный
+недостаток такого метода. Нельзя работать
+только с одним единственным диском -
+qcow от QEMU.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Вот
+пример создания простого VHD-диска. При
+таком методе, права на директорию, куда
+монтируется диск, задавать не обязательно.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-img create -f vpc -o size=4G ./image_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -c /dev/nbd0 ./image_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s /dev/nbd0 mklabel msdos</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s /dev/nbd0 mkpart primary ntfs 1MB 2561MB</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s /dev/nbd0 mpart primary ext4 2562MB 100%</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -d /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -c /dev/nbd0 ./image_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+mkfs -t ntfs /dev/nbd0p1</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+mkfs -t ext4 /dev/nbd0p2</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -d /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -c /dev/nbd0 ./image_vhd.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+lsblk -o NAME,MODEL,TYPE,FSTYPE,SIZE,MOUNTPOINT /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+parted -s /dev/nbd0 print</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+id -g `$whoami`</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+id -u `$whoami`</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo mount -t auto -o,rw,gid=985,uid=1000 /dev/nbd0p1 ./disk</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">А
+по окончании работы с диском:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo umount -l ./disk</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+sudo qemu-nbd -d /dev/nbd0</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Вот
+теперь все диски можно подключить в
+виртуальных машинах и проверить на
+работоспособность, а также сделать тоже
+самое на Windows.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+VirtualBox ничего делать не требуется.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+Qemu можно поиграться с настройками. Так
+у нас будет больше преимуществ.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Посмотрим
+на все устройства и процессоры.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-system-x86_64 -device help &gt; device.txt</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">$
+qemu-system-x86_64 -cpu help &gt; cpu.txt</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Подключить
+диски будем вот по такому принципу:</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-drive
+format=vpc,file=image.vhd</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+vpc(file.vhd) vdi(file.vdi) vhdx(file.vhdx)</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Создадим
+короткий скрипт, чтобы не копи-пастить
+команды в консоль.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#!/bin/bash</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">qemu-system-x86_64
+\</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-enable-kvm
+\</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-cpu
+host \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-smp
+cores=1 \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-m
+1024 \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-machine
+q35 \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-device
+intel-iommu \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-vga
+virtio \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-device
+e1000,netdev=wan \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-netdev
+user,id=wan \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-boot
+menu=on \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-cdrom
+linuxmint-20.2-mate-64bit.iso \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-drive
+format=raw,file=raw.img \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-drive
+format=vpc,file=image_vhd.vhd \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-drive
+format=vdi,file=image_vdi.vdi</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+-hda hard.qcow</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#-L
+. \</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#-drive
+file=/usr/share/ovmf/x64/OVMF_CODE.fd,if=pflash,format=raw,unit=0,readonly=on</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#
+или</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#-drive
+file=OVMF_CODE.fd,if=pflash,format=raw,unit=0,readonly=on</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Последние
+5 строчек - это бонус для возможности
+запуска QEMU в режиме UEFI. Но, только если
+у вас установлен edk2-ovmf.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Однако,
+вы можете скачать готовый пакет и
+вытащить из него буквально 2 файла - один
+для 32 бит, другой для 64 - OVMF_CODE.fd.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ну
+и конечно же не забываем про подключение
+к Qemu интернета.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В
+самом начале заголовка статьи указана
+VeraCrypt не спроста.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">По
+сути это ведь такой же контейнер, который
+представляет из себя образ диска, только
+шифрованный.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>В
+Windows VeraCrypt</b></span></span></font></font></span></strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+может создавать шифрованные диски со
+следующими файловыми системами</span></span></span></font></font></span><strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>:</b></span></span></font></font></span></strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">NTFS,
+FAT, exFAT</span></span></span></font></font></span></em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>В
+Linux:</b></span></span></font></font></span></strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">
+</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">FAT,
+NTFS, Btrfs, EXT2, EXT3, EXT4</span></span></span></font></font></span></em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Таким
+образом созданный диск в </span></span></span></font></font></span><strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Linux</b></span></span></font></font></span></strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+не всегда можно подключить в </span></span></span></font></font></span><strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Windows</b></span></span></font></font></span></strong><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Хотя наоборот - возможно.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Всегда
+думайте какой диск вам лучше использовать
+для ваших данных.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+любого диска всегда помните об ограничениях
+файловых систем и вы никогда не потеряете
+свои данные.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Надеюсь
+я вас хоть немного заинтересовал.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Всем
+до встречи. Пока-пока!</span></span></span></font></font></span></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+</body>
+</html>

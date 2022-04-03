@@ -1,0 +1,82 @@
+
+
+Посмотреть все порты и соединения на localhost.
+sudo lsof -iTCP -sTCP:LISTEN -n -P
+
+Тунель от своей машины к удаленной, пробросить свой порт на удалённую машину.
+ssh -f -N -L 5858:localhost:8585 -p 2222 user@192.168.0.150
+
+Тунель от удалённой машины к своей, т.е. пробросить удалённый порт на свою машину.
+ssh -f -N -R 5858:172.19.0.2:8585 -p 2222 user@192.168.0.150
+
+Динамический проброс портов
+ssh -f -N -D 9090 -P 2222 user@192.168.0.150 &
+
+pid=$!
+ps aux | grep ssh
+sudo kill -TERM ${pid}
+sudo kill -KILL ${pid}
+
+
+И теперь введите для соединения.
+ssh -P 2222 user@192.168.0.150
+ 
+С помощью SSH туннелей вы можете строить целые цепочки для форвардинга портов. Включить или отключить SSH туннелирование можно в конфигурационном файле sshd_config директивами:
+ 
+AllowStreamLocalForwarding yes
+AllowTcpForwarding remote
+ 
+Linux:
+ 
+/usr/bin/google-chrome 
+    --user-data-dir="$HOME/proxy-profile" 
+    --proxy-server="socks5://localhost:9090"
+macOS:
+ 
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" 
+    --user-data-dir="$HOME/proxy-profile" 
+    --proxy-server="socks5://localhost:9090"
+Windows:
+ 
+"C:Program Files (x86)GoogleChromeApplicationchrome.exe" ^
+    --user-data-dir="%USERPROFILE%proxy-profile" ^
+    --proxy-server="socks5://localhost:9090"
+    
+ 
+chrome.exe --restore-last-session
+ 
+chrome.exe --incognito
+ 
+--host-resolver-rules="MAP * ~NOTFOUND , EXCLUDE proxy_server"
+ 
+firefox -private
+opera --incognito
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

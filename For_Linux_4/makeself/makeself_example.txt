@@ -1,0 +1,48 @@
+
+
+#
+#
+#
+./makeself.sh --nox11 \
+--nooverwrite \
+--gzip \
+--complevel 9 \
+--tar-extra "--exclude=.git" \
+--sha256 \
+/home/mikl/git-ssh/abif-master/abif-installation/ \
+./abif-setup.run \
+"Abif master installation" \
+./abif
+#
+#
+#
+./makeself.sh --nox11 \
+--nooverwrite \
+--gzip \
+--complevel 9 \
+--tar-extra "--exclude=.git" \
+--sha256 \
+--append ./ \
+/home/mikl/003/abif-setup.run \
+"Abif master installation" \
+./abif
+#
+#
+#
+git clone https://github.com/maximalisimus/abif-master.git
+#
+cp /home/mikl/git-ssh/for-linux/For_Linux_4/makeself/*.sh /home/mikl/003/abif-master/abif-installation/
+#
+/home/mikl/git-ssh/for-linux/For_Linux_4/makeself/makeself.sh --nox11 \
+--nooverwrite \
+--gzip \
+--complevel 9 \
+--tar-extra "--exclude=.git" \
+--sha256 \
+./abif-master/abif-installation/ \
+./abif-setup.run \
+"Abif master installation" \
+./abif
+#
+#
+#
