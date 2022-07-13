@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.3.0.3 (Linux)"/>
+	<meta name="created" content="2020-04-09T22:39:19"/>
+	<meta name="changed" content="2022-07-13T15:06:25.330566616"/>
+	<meta name="AppVersion" content="15.0000"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin: 2cm }
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: ru-RU }
+		p.cjk { font-family: "AR PL New Sung"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "DejaVu Sans"; font-size: 12pt; so-language: hi-IN }
+		h1 { color: #000000; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.21cm; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", sans-serif; font-size: 24pt; so-language: ru-RU; font-weight: bold }
+		h1.cjk { font-family: "AR PL New Sung"; font-size: 24pt; so-language: zh-CN; font-weight: bold }
+		h1.ctl { font-family: "DejaVu Sans"; font-size: 24pt; so-language: hi-IN; font-weight: bold }
+		pre { color: #000000; text-align: left; orphans: 2; widows: 2; direction: ltr; background: transparent }
+		pre.western { font-family: "Liberation Mono", serif; font-size: 10pt; so-language: ru-RU }
+		pre.cjk { font-family: "Liberation Mono"; font-size: 10pt; so-language: zh-CN }
+		pre.ctl { font-family: "Liberation Mono"; font-size: 10pt; so-language: hi-IN }
+		a:link { color: #000080; so-language: zxx; text-decoration: underline }
+		code.western { font-family: "Liberation Mono", serif }
+		code.cjk { font-family: "Liberation Mono" }
+		code.ctl { font-family: "Liberation Mono" }
+	</style>
+</head>
+<body lang="ru-RU" text="#000000" link="#000080" vlink="#800000" dir="ltr"><h1 class="western" align="center" style="line-height: 130%; orphans: 2; widows: 2; margin-top: 0cm; margin-bottom: 0cm; background: transparent; page-break-after: avoid">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Документирование
+кода в Python</span></span></span></span></b></font></font></h1>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Документирование
+кода — неотъемлемая часть разработки
+на Python. Порой документации в коде может
+быть больше, чем самого кода. Она помогает
+понять, что делает функция или класс,
+какие аргументы принимает и что
+возвращает.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Когда
+документация и код находятся в разных
+местах, сопровождать их становиться
+довольно тяжело. Поэтому на практике
+документация находится непосредственно
+рядом с кодом.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Docstring</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Docstring
+— это строковый литерал, который
+расположен сразу за объявлением модуля,
+функции, класса или метода. О том, какие
+существуют соглашения в документировании
+Python кода описано в документации PEP257.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Документация
+для классов</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Документация
+класса создается для самого класса, а
+также для его методов.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>class</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Speaker</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;Это docstring класса Speaker&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>def</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>say_something</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self):</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;Это docstring метода&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">print</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;something&quot;</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">)</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">После
+строки документации нужно оставлять
+пустую строку</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Документация
+для класса может содержать следующую
+информацию:</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">краткое
+		описание класса (+ его поведение);</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">описание
+		атрибутов класса;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">описание
+		публичных методов;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">все,
+		что связано с интерфейсом для подклассов.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Для
+методов класса документация может
+содержать:</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">краткое
+		описание метода (+ его поведение);</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">описание
+		аргументов метода;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">побочные
+		эффекты (если таковые возникают при
+		выполнении метода);</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">исключения.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ниже
+— пример с более подробной документацией
+класса:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>class</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>TextSplitter</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;Класс TextSplitter используется для разбивки текста на слова</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Основное применение - парсинг логов на отдельные элементы</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">по указанному разделителю.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Note:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Возможны проблемы с кодировкой в Windows</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Attributes</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">----------</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">file_path : str</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">полный путь до текстового файла</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">lines : list</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">список строк исходного файла</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Methods</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-------</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">load()</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Читает файл и сохраняет его в виде списка строк в lines</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">get_splitted(split_symbol=&quot; &quot;)</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Разделяет строки списка по указанному разделителю</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">и возвращает результат в виде списка</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>def</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>__init__</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self, file_path: </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">str</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">):</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">self.file_path = file_path.strip()</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">self.lines = []</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>def</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>load</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self) -&gt; </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#008080"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">None</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;Метод для загрузки файла в список строк lines</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Raises</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">------</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Exception</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">            </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Если файл пустой вызовется исключение</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>with</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">open</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self.file_path, encoding=</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;utf-8&quot;</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">) </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>as</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> f:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">            </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>for</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> line </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>in</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> f:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">                </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">self.lines.append(line.rstrip(</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">'\n'</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">))</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">            </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>if</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">len</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self.lines) == </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#008080"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">0</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">                </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>raise</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> Exception(</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">f&quot;file </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">{self.file_path}</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> is empty&quot;</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">)</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>def</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>get_splitted</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(self, split_symbol: </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">str</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> = </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot; &quot;</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">) -&gt; </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">list</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;Разбивает текстовые строки lines, преобразуя строку в </span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">список слов по разделителю</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Если аргумент split_symbol не задан, в качестве разделителя</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">используется пробел</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Parameters</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">----------</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">split_symbol : str, optional</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">            </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">разделитель</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">split_list = []</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>for</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> str_line </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>in</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> self.lines:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">            </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">split_list.append(str_line.split(split_symbol))</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>return</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> split_list</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Документация
+для пакетов</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Документация
+пакета размещается в файле __init__.py в
+верхней части файла (начиная с 1-й строки).
+В ней может быть указано:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">описание
+		пакета;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">список
+		модулей и пакетов, экспортируемых этим
+		модулем;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">автор;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">контактные
+		данные;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">лицензия.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Пакет Mos помогает создать полноэкранный текстовый интерфейс в консоли.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Alex Ivanov [https://alex.ivanov.ru/]</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">alex.ivanov@gmail.com</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"># License: BSD</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;&quot;&quot;</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">__author__ = </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">'Alex Ivanov'</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>try</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>from</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> .version </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>import</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> version</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>except</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> ImportError:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">version = </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&quot;0.0.0&quot;</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">__version__ = version</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Документация
+для модулей</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Документация
+модулей аналогична документации классов.
+Вместо класса и методов в данном случае
+документируется модуль со всеми его
+функциями. Размещается в верхней части
+файла (начиная с 1-й строки).</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Форматы
+Docstring</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Строки
+документации могут иметь различное
+форматирование. В примере выше мы
+использовали стиль NumPy. Существуют и
+другие форматы:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Google
+		styleguide -&gt; Comments and Docstrings</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Numpydoc
+		docstring guide</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Epydoc</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">reStructuredText
+		(reST)</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Вывод
+документации на экран — help() и __doc__</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent; page-break-before: always">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Строки
+документации доступны:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">из
+		атрибута __doc__ для любого объекта;</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">с
+		помощью встроенной функции help().</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Выведем
+документацию с помощью функции help():</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>import</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> my_module</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#0086b3"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">help</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">(my_module)</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Help on module test:</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">NAME</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">test - Это docstring модуля, он однострочный.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">FILE</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">/var/www/test.py</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">CLASSES</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">MyClass</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>class</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>MyClass</b></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|  Это </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>docstring</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> класса.</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|  </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>Methods</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>defined</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#990000"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>here</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|  my_method(self)</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">     </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">|      Это docstring метода</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">FUNCTIONS</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">my_function(a)</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Это многострочный docstring для функции my_function.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В многострочном docstring первое предложение</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">кратко описывает работу функции.</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Также
+можно выводить документацию отдельного
+объекта:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b><span style="background: transparent">&gt;&gt;&gt; </span></b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b><span style="background: transparent">import</span></b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><span style="background: transparent"> my_module</span></span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">my_module.__doc__</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">my_module.my_function.__doc__</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">my_module.MyClass.__doc__</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#999999"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>&gt;&gt;&gt; </b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">my_module.MyClass.my_method.__doc__</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Pydoc</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+более удобной работы с документацией,
+в Python существует встроенная библиотека
+pydoc.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Pydoc
+автоматически генерирует документацию
+из Python модулей. Информацию по доступным
+командам модуля pydoc можно получить
+набрав в терминале:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python
+-m pydoc</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Разберем
+подробнее, что умеет pydoc.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Вывод
+текста документации</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pydoc
+&lt;name&gt; — покажет текст документации
+указанного модуля, пакета, функции,
+класса и т.д. Если &lt;name&gt; содержит &quot;\&quot;,
+Python будет искать документацию по
+указанному пути.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+примера, посмотрим документацию
+встроенного модуля math:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python -m pydoc math</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Help on built-</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>in</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> module math:</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">NAME</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">math</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">DESCRIPTION</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">This module provides access to the mathematical functions</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">defined by the C standard.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">FUNCTIONS</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">acos(x, /)</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Return the arc cosine (measured </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>in</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> radians) of x.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">acosh(x, /)</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">        </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Return the inverse hyperbolic cosine of x.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">...</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В
+консоль выведется название модуля, его
+описание и описание всех функций в
+модуле.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Поиск
+по документации</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pydoc
+-k &lt;keyword&gt; — найдет ключевое слово в
+документации всех доступных модулей.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Допустим,
+нам нужно распаковать gzip файл. Поищем
+слово &quot;gzip&quot;:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python -m pydoc -k gzip</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">_compression - Internal classes used by the gzip, lzma </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>and</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> bz2 modules</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">gzip - Functions that read </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>and</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> write gzipped files.</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">test.test_gzip - Test script </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>for</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> the gzip module.</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В
+списке мы видим модуль gzip. Теперь можно
+посмотреть его документацию:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python -m pydoc gzip</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Help on module gzip:</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">NAME</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">gzip - Functions that read </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>and</b></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"> write gzipped files.</span></span></span></font></font></font></span></code>
+
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">DESCRIPTION</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">The user of the file doesn</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">'t have to worry about the compression,</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#dd1144"><span style="letter-spacing: normal">    </span></font></span></code><code class="western"><span style="font-variant: normal"><font color="#dd1144"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">but random access is not allowed.</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">По
+описанию, данный модуль решит нашу
+задачу.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">HTTP
+сервер с документацией</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+удобства просмотра документации, pydoc
+позволяет одной командой создать
+HTTP-сервер:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<pre class="western" style="line-height: 130%; text-align: left; orphans: 2; widows: 2; text-indent: 0.8cm; background: transparent"><font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python -m pydoc -p </span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#008080"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">331</span></span></span></font></font></font></span></code></span></font></font>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Server ready at http://localhost:</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#008080"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">331</span></span></span></font></font></font></span></code><code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">/</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Server commands: [b]rowser, [q]uit</span></span></span></font></font></font></span></code>
+<code class="western"><span style="font-variant: normal"><font color="#333333"><font face="monospace"><font size="3" style="font-size: 11pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">server&gt;</span></span></span></font></font></font></span></code></pre><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent; page-break-before: always">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+можно перейти в браузер и зайти на
+<a href="http://localhost:331/">http://localhost:331/</a></span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<img src="Python-Documentation-Code_html_711dda351fb53641.png" name="Изображение1" align="left" width="570" height="318">
+  <br clear="left"/>
+</img>
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+остановки сервера введите &quot;q&quot; и
+нажмите &quot;Enter&quot;:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">server&gt;
+q</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Server
+stopped</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Также
+HTTP-сервер доступен через python -m pydoc -b –
+эта команда создаст сервер на свободном
+порту, откроет браузер и перейдет на
+нужную страницу.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Запись
+документации в файл</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">python
+-m pydoc -w sqlite3 — запишем файл с документацией
+по модулю sqlite3 в html файл.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<img src="Python-Documentation-Code_html_9c1e339fccb4467.png" name="Изображение2" align="left" width="553" height="300">
+  <br clear="left"/>
+</img>
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Автодокументирование
+кода</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+того чтобы облегчить написание
+документации и улучшить ее в целом,
+существуют различные Python-пакеты. Один
+из них — pyment.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Pyment
+работает следующим образом:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent; page-break-before: auto">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Анализирует
+		один или несколько скриптов.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Получает
+		существующие строки документации.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Генерирует
+		отформатированные строки документации
+		со всеми параметрами, значениями по
+		умолчанию и т.д.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Далее
+		вы можете применить сгенерированные
+		строки к своим файлам.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Этот
+инструмент особенно полезен когда код
+плохо задокументирован, или когда
+документация вовсе отсутствует. Также
+pyment будет полезен в команде разработчиков
+для форматирования документации в
+едином стиле.</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent; page-break-before: always">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Установка:</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pip
+install pyment</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><b><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal">Использование:</span></span></span></span></b></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pyment
+myfile.py    # для файла</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pyment
+-w myfile.py  # для файла + запись в файл</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-left: 1.25cm; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pyment
+my/folder/  # для всех файлов в папке</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+большинства IDE также существуют плагины,
+помогающие документировать код:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">AutoDocstring
+		– для VS Code.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Auto​Docstring
+		– для SublimeText.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Python
+		DocBlock Package – для Atom.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Autodoc
+		– для PyCharm.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">В
+PyCharm существует встроенный функционал
+добавления документации к коду. Для
+этого нужно:</span></span></span></span></span></font></font></p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<ul>
+	<ul>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Переместить
+		курсор под объявление функции.</span></span></span></span></span></font></font></p>
+		<li><p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; margin-bottom: 0cm; background: transparent">
+		<font face="Times Newer Roman"><font size="4" style="font-size: 14pt"><span style="background: transparent"><span style="font-variant: normal"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Написать
+		тройные кавычки &quot;&quot;&quot; и нажмите
+		&quot;Enter&quot;.</span></span></span></span></span></font></font></p>
+	</ul>
+</ul>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 130%; orphans: 2; widows: 2; text-indent: 0.8cm; margin-bottom: 0cm; background: transparent">
+<br/>
+
+</p>
+</body>
+</html>
