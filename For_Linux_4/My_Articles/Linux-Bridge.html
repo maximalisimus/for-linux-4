@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.4.1.2 (Linux)"/>
+	<meta name="author" content="utv"/>
+	<meta name="created" content="2022-02-21T09:47:00"/>
+	<meta name="changed" content="2022-10-06T23:16:38"/>
+	<meta name="AppVersion" content="15.0000"/>
+	<style type="text/css">
+		@page { size: 21cm 29.7cm; margin-left: 3cm; margin-right: 1.5cm; margin-top: 2cm; margin-bottom: 2cm }
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
+		p.western { font-family: "Times New Roman", serif; font-size: 12pt; so-language: ru-RU }
+		p.cjk { font-family: "Times New Roman"; font-size: 12pt; so-language: ru-RU }
+		p.ctl { font-family: "Times New Roman"; font-size: 12pt; so-language: ar-SA }
+		h1 { color: #000000; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.21cm; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", sans-serif; font-size: 24pt; so-language: ru-RU; font-weight: bold }
+		h1.cjk { font-family: "DejaVu Sans"; font-size: 24pt; so-language: ru-RU; font-weight: bold }
+		h1.ctl { font-family: "DejaVu Sans"; font-size: 24pt; so-language: ar-SA; font-weight: bold }
+		h3 { color: #000000; text-align: left; orphans: 2; widows: 2; margin-top: 0.25cm; margin-bottom: 0.21cm; direction: ltr; background: transparent; page-break-after: avoid }
+		h3.western { font-family: "Liberation Serif", sans-serif; font-size: 14pt; so-language: ru-RU; font-weight: bold }
+		h3.cjk { font-family: "DejaVu Sans"; font-size: 14pt; so-language: ru-RU; font-weight: bold }
+		h3.ctl { font-family: "DejaVu Sans"; font-size: 14pt; so-language: ar-SA; font-weight: bold }
+		a:link { color: #0563c1; text-decoration: underline }
+		em { font-style: italic }
+	</style>
+</head>
+<body lang="ru-RU" text="#000000" link="#0563c1" vlink="#800000" dir="ltr"><h1 class="western">
+<font size="6" style="font-size: 28pt"><b>Сетевой мост для
+QEMU в Linux.</b></font><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура1" alt="Фигура1" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура2" alt="Фигура2" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура3" alt="Фигура3" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура4" alt="Фигура4" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура5" alt="Фигура5" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><img src="Linux-Bridge_html_f3c98a66b1e66026.gif" name="Фигура6" alt="Фигура6" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"></h1>
+<h3 class="western"><font size="5" style="font-size: 18pt"><b>Часть
+1. Создание конфигурационных файлов.</b></font></h3>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.32cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Во
+первых необходимо включить маршрутизацию
+между интерфейсами.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+sysctl net.ipv4.ip_forward=1</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+постоянного включения маршрутизации
+создайте файл.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">echo
+&quot;net.ipv4.ip_forward = 1&quot;&nbsp;</span></span></span></font></font></span></em><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">&gt;</span></span></font></font></span></b><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;/etc/sysctl.d/99-sysctl.conf</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+придумайте имя вашего будущего сетевого
+адаптера для режима&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«Мост»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Пусть у меня будет&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«br0»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Мы с вами будет пользоваться встроенными
+в систему средствами без каких-либо
+дополнительных утилит.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">С
+одной стороны — это слегка усложняет
+настройку, с другой стороны убирает
+необходимость устанавливать что-либо.
+Усложняет в том, смысле что, например,
+графический интерфейс&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Network-Manager</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;не
+поддерживает создание адаптера для
+режима мост, только консольные средства.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Возможно
+для последнего я просто не нашел
+необходимых настроек, однако, вам всё
+равно также придётся искать. Команды
+же намного проще, чем кажутся. Ну да
+хватит демагогии, переходим к делу.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+необходимо создать файл&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«/etc/qemu/bridge.conf»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;и
+записать в него одну строку с названием
+придуманного вами адаптера режима&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«Мост»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Собственно говоря, адаптер может быть
+не один. Просто запишите на каждой строке
+свой адаптер.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+mkdir -p /etc/qemu/</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+touch /etc/qemu/bridge.conf</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+nano /etc/qemu/bridge.conf</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">allow
+br0</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Если
+вам сетевой мост необходим на постоянной
+основе, то стоит также сделать ручную
+настройку адресов данного адаптера,&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">но
+только после его создания</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Однако, настройку всё равно приведу,
+чтобы не листать вверх-вниз.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+nano /etc/network/interfaces</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">allow-hotplug
+br0</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">auto
+br0</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">iface
+br0 inet static</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">address
+192.168.0.120</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">netmask
+255.255.255.0</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">broadcast
+192.168.0.255</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">gateway
+192.168.0.1</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">dns-nameservers
+192.168.0.1 8.8.8.8</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">pre-up
+ifconfig br0 hw ether xx:xx:xx:xx:xx:xx</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Последняя
+строка, которая изменяет МАК-адрес не
+обязательна. Широковещательный адрес
+рекомендую всё-таки указывать, хоть он
+и не обязателен. Шлюз указывать
+обязательно. А вот DNS сервер не обязателен.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Однако,
+именно эту часть настроек вы можете
+внести уже графически через&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«Network-Manager»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+т.к. после создания адаптера вручную с
+указанием его типа он автоматически
+появляется в списках адаптеров для всех
+менеджеров сетей. Так что не обязательно
+делать всё вручную. Вручную можно сделать
+только часть настроек.</span></span></span></font></font></span></p>
+<h3 class="western"><font size="5" style="font-size: 18pt"><b>Часть
+2. Создаем адаптер и настраиваем.
+Машрутизация.</b></font></h3>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.32cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Создаем
+адаптер с типом&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«Мост»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$&nbsp;</span></span></font></font></span></b><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link add name br0 type bridge</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Включаем
+его.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link set br0 up</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Далее
+не обязательно вносить все настройки
+вручную, через терминал, т.к. после
+создания адаптера вручную с указанием
+его типа он автоматически появляется
+в списках адаптеров для всех менеджеров
+сетей.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Указываем
+главный адаптер. У меня это&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«enp3s0»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+проводной адаптер. У вас может другой,
+например,&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«eth0»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+или&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«wlp4s0»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;беспроводной.
+Просто наберите в терминале команду&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«</span></span></font></font></span></b><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><b>ip
+link show</b></span></span></font></font></span></em><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+чтобы узнать названия всех ваших
+адаптеров и активных соединений (если
+отсутствует ifconfig — из net-tools утилиты).
+Если используете WiFi — то название должно
+начинаться с&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«wl»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+а у проводного с&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«en»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;или
+с&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«et»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link set enp3s0 master br0</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Подключаем
+сетевой мост.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+bridge link</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+настраиваем адреса и не забываем про
+широковещательный адрес. Я для вычисления
+широковещательного адреса использую
+самый простой калькулятор — консольная
+утилита&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«ipcalc»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">ipcalc
+192.168.0.120/24</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip addr add 192.168.0.120/24 dev br0</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ifconfig br0 broadcast 192.168.0.255</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ifconfig br0 mtu 1000</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">И
+самое главное маршрут для этого моста
+по умолчанию, иначе интернета в&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Qemu</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;не
+будет. Кстати, эту команду прям
+непосредственно можно вставить в ручные
+настройки адресов&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«/etc/network/interfaces»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+разумеется без&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«sudo»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip route add 192.168.0.120 via 192.168.0.1</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">И
+не забудьте указать шлюз по умолчанию,
+а то интернет на основном адаптере
+пропадет.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;s</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">udo
+route add default gw 192.168.0.1 br0</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+просмотра маршрутов по умолчанию:</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">ip
+route</span></span></span></font></font></span></em></p>
+<h3 class="western"><font size="5" style="font-size: 18pt"><b>Часть
+3. QEMU</b></font></h3>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.32cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Адаптер
+сетевого моста указывается так:</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-netdev
+bridge,br=br0,id=net0 \</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-device
+virtio-net-pci,netdev=net0</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Чтобы
+меньше заморачиваться я для себя просто
+создал скрипт рядом с необходимым
+образом системы. И в этот скрипт вношу
+все необходимые команды. Некоторые
+записываю в комментарий, чтобы не забыть
+— просто для удобства, чтобы ничего не
+искать.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Базовый
+файл запуска виртуальной машины,
+например, Archlinux выглядит так —&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«qemu.sh»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">:</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#!/usr/bin/env
+bash</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">qemu-system-x86_64
+\</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-enable-kvm
+\</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-cpu
+host \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-smp
+cores=1 \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-m
+1024 \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-machine
+q35 \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-device
+intel-iommu \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-vga
+virtio \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-netdev
+bridge,br=br0,id=net0 \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-device
+virtio-net-pci,netdev=net0 \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-boot
+menu=on \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-cdrom
+archlinux-2021.11.01-x86_64.iso \</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-hda
+arch.qcow</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">А
+далее меняйте в этом скрипте необходимые
+параметры по своему усмотрению.</span></span></span></font></font></span></p>
+<h3 class="western"><font size="5" style="font-size: 18pt"><b>Часть
+4. Завершение работы с сетевым мостом.</b></font></h3>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.32cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">По
+окончании работы с сетевым мостом
+необходимо его правильно удалить из
+системы.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Если
+сетевой мост в QEMU больше не нужен, то
+смело удаляйте конфигурацию.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+rm -rf /etc/qemu/bridge.conf</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Отсоединяем
+основной адаптер от сетевого моста.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link set enp3s0 nomaster</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Отключаем
+сетевой мост.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link set br0 down</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">На
+всякий случай очищаем маршруты, если
+таковые остались. Обычно&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">«Network-Manager»</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;делает
+всё за нас в автоматическом режиме. При
+проблемах — команды ниже.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+route del default gw 192.168.0.1 br0</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip route del 192.168.0.120 via 192.168.0.1</span></span></span></font></font></span></em></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">И
+только после этого, можем его безвредно
+удалить.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">$</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">sudo
+ip link delete br0 type bridge</span></span></span></font></font></span></em></p>
+<h3 class="western"><font size="5" style="font-size: 18pt"><b>P.S.:</b></font></h3>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.32cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Тест
+всех соединений в приложенных скриншотах.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ну
+а сегодня на этом всё. Надеюсь я хоть
+немного вас заинтересовал.</span></span></span></font></font></span></p>
+<p class="western" align="left" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Спасибо
+за внимание. Всем Удачи, до новых встреч,
+Пока-Пока!</span></span></span></font></font></span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">#bash
+#QEMU #ipcalc #ifconfig #NetTools #ip #iplink #sysctl #bridge #nano</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Дополнение
+статьи: <a href="https://vk.com/wall-153221588_7609">https://vk.com/wall-153221588_7609</a></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Сохранение
+настроек сетевого моста при перезагрузке.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><a name="_GoBack"></a>
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Для
+автоматической настройки сетевого
+моста после перезагрузки нужна утилита
+bridge-utils.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Без
+неё сетевой мост необходимо будет каждый
+раз настраивать заново, иначе даже
+соединения с интернетом или роутером
+не будет. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">А
+именно: указать главный адаптер,
+подключить сетевой мост, и указать
+маршруты по умолчанию.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo ip link set br0 up</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo ip link set enp3s0 master br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo bridge link</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo route add 192.168.0.120 via 192.168.0.1</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo route add default gw 192.168.0.1 br0</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo route del default gw 192.168.0.1 br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">$
+sudo route del 192.168.0.120 via 192.168.0.1</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">В
+Archlinux утилиту можно установить так.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo pacman -S bridge-utils --noconfirm</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">В<span lang="en-US">
+Debian </span>так<span lang="en-US">.</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo su </span>
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+echo 'deb http://ftp.de.debian.org/debian sid main' &gt;
+/etc/apt/sources.list.d/ftp.de.debian.org.list</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo apt update</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo apt install bridge-utils –y</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Команды
+утилиты.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Создать мост.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">$
+brctl addbr bridge_name</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Добавьте устройство к мосту, например
+eth0:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">$
+brctl addif bridge_name eth0</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Показать текущие мосты и к каким
+интерфейсам они подключены:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">$
+brctl show</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Настроить мостовое устройство:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+ip link set dev bridge_name up</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Чтобы удалить мост, вам нужно сначала
+установить его в положение down:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+ip link set dev bridge_name down</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+brctl delbr bridge_name</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Сохранение<span lang="en-US">
+</span>настроек<span lang="en-US"> Network Manager.</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Если
+у вас сетевой менеджер <span lang="en-US">Network</span>
+<span lang="en-US">Manager</span>, то с сохранением
+настроек моста при перезагрузке могут
+возникнуть проблемы. Чтобы это исправить
+будем вручную управлять настройками
+всех адаптеров и соединений сетевого
+менеджера.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Для
+этого отредактируйте файл конфигурации
+сетевого менеджера
+«/etc/NetworkManager/NetworkManager.conf» или создайте
+отдельную конфигурацию по пути
+«/etc/NetworkManager/conf.d/».</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo nano /etc/NetworkManager/NetworkManager.conf</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">#
+</span>или</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo mkdir -p /etc/NetworkManager/conf.d/</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo nano /etc/NetworkManager/conf.d/managed.conf</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">#
+Далее просто пропишите секцию и её
+настройку. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">[ifupdown]</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">managed=true</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Тем
+самым мы говорим, чтобы менеджер брал
+настройки из файла «/etc/network/interfaces».</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Также,
+по умолчанию менеджер каждый раз по
+активации любого соединения переписывает
+настройки файла «/etc/resolv.conf». Чтобы это
+предотвратить и управлять <span lang="en-US">dns</span>-настройками
+вручную просто создайте конфигурацию
+по тому же пути: «/etc/NetworkManager/conf.d/dns.conf».</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo nano /etc/NetworkManager/conf.d/dns.conf</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">[main]</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">dns=none</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Не
+забудьте включить или отключить
+resolvconf.service в <span lang="en-US">system</span>:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+systemctl start resolvconf.service</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+systemctl enable resolvconf.service</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">#
+</span>или</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+systemctl stop resolvconf.service</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+systemctl disable resolvconf.service</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Теперь
+настройте сетевые интерфейсы
+«/<span lang="en-US">etc</span>/<span lang="en-US">network</span>/<span lang="en-US">interfaces</span>».
+Например, адрес моста пусть будет
+192.168.0.120, адрес роутера по умолчанию
+192.168.0.1, маска 24.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Не
+забудьте про обязательный <span lang="en-US">loopback</span>
+интерефейс и автоматические или
+статические адреса всех ваших сетевых
+интерфейсов, иначе они даже не запустятся.
+Включая <span lang="en-US">WiFi</span> интерфейс,
+например, <span lang="en-US">wlp</span>0<span lang="en-US">s</span>3.
+У меня в виртуальной машине <span lang="en-US">WiFi</span>
+нет.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo nano /etc/network/interfaces</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">auto
+lo</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">iface
+lo inet loopback</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">allow-hotplug
+enp0s3</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">auto
+enp0s3</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">#
+iface enp0s3 inet dhcp</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">allow-hotplug
+br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">auto
+br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">iface
+br0 inet static</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">#
+iface br0 inet dhcp</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	address
+192.168.0.120</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	netmask
+255.255.255.0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	broadcast
+192.168.0.255</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	gateway
+192.168.0.1</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	#
+dns-nameservers 192.168.0.1 8.8.8.8</span></p>
+<p class="western" style="line-height: 100%; text-indent: 1.25cm; margin-bottom: 0cm">
+<span lang="en-US"># pre-up ifconfig br0 hw ether xx:xx:xx:xx:xx:xx</span></p>
+<p class="western" style="line-height: 100%; text-indent: 1.25cm; margin-bottom: 0cm">
+<span lang="en-US"># pre-up ip link set br0 address xx:xx:xx:xx:xx:xx</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	bridge_ports
+eth0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	bridge_stp
+off</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	bridge_fd
+0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	bridge_maxwait
+0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	post-up
+route add 192.168.0.120 via 192.168.0.1</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	post-up
+route add default gw 192.168.0.1 br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	post-down
+route del default gw 192.168.0.1 br0</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">	post-down
+route del 192.168.0.120 via 192.168.0.1</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Cтрока,
+которая изменяет МАК-адрес не обязательна,
+поэтому она закоментирована. Она также
+указана, как в варианте настройки при
+помощи утилиты <span lang="en-US">ifconfig</span>, так
+и при помощи стандартной утилиты <span lang="en-US">ip</span>.
+Широковещательный адрес рекомендую
+всё-таки указывать, хоть он и не обязателен.
+Шлюз указывать обязательно. DNS сервер
+не обязателен. команды маршрутизации
+обязательны.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Описание
+команд конфигурационного файла.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">address
+address - </span>адрес<span lang="en-US">.</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">netmask
+netmask - </span>маска<span lang="en-US"> </span>сети<span lang="en-US">.</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">broadcast
+- </span>широковещательный<span lang="en-US">_</span>адрес<span lang="en-US">.</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">network
+network_address - </span>адрес<span lang="en-US"> </span>сети<span lang="en-US">.</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">metric
+metric - Метрика(целое число).</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">gateway
+address - Шлюз по умолчанию.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">pointopoint
+адрес - Адрес удалённой точки.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">media
+type - Тип носителя, зависящий от драйвера.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">hwaddress
+class address - </span>Аппаратный<span lang="en-US"> </span>адрес<span lang="en-US">.
+</span>Класс - это одно из следующих значений:
+ether, ax25, ARCnet или netrom. Адрес зависит от
+выбранного класса.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">mtu
+size - Размер MTU.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Описание
+команд <span lang="en-US">pre</span>-<span lang="en-US">up</span>,
+<span lang="en-US">post</span>-<span lang="en-US">up</span>, <span lang="en-US">pre</span>-<span lang="en-US">up</span>,
+<span lang="en-US">post</span>-<span lang="en-US">down</span>.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">•
+<span lang="en-US">pre</span>-<span lang="en-US">up</span> Запустить
+команду до поднятия интерфейса.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">•
+<span lang="en-US">post</span>-<span lang="en-US">up</span> Запустить
+команду после поднятия интерфейса. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">•
+<span lang="en-US">pre</span>-<span lang="en-US">down</span>
+Запустить команду перед отключением
+интерфейса.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">•
+<span lang="en-US">post</span>-<span lang="en-US">down</span>
+Запустить команду после отключения
+интерфейса.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Сохранение
+настроек <span lang="en-US">Connman</span>.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Если
+у вас сетевой менеджер <span lang="en-US">connman</span>,
+то сохранить настройки при перезагрузке
+здесь будет немного посложнее.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Для
+установки в <span lang="en-US">Debian</span> воспользуйте
+следующими командами.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo su</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+echo &quot;deb http://ftp.de.debian.org/debian sid main&quot; &gt;&gt;
+/etc/apt/sources.list.d/ftp.de.debian.org.list</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+apt update</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo apt install connman connman-gtk connman-ui -y</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Для
+установки в <span lang="en-US">Archlinux</span>:</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">$
+<span lang="en-US">sudo</span> <span lang="en-US">pacman</span> –<span lang="en-US">S</span>
+<span lang="en-US">connman</span> --<span lang="en-US">noconfirm</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Затем
+внесите изменения в агент и активируйте
+сервис.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo connmanctl</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">agent
+on</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">quit</span></p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><span lang="en-US">$
+sudo systemctl enable connman</span></p>
+<p lang="en-US" class="western" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Чтобы
+понять какие настройки примутся после
+перезагрузки я вносил изменения при
+помощи графической утилиты «<span lang="en-US">connman</span>-<span lang="en-US">gtk</span>».
+Настройки находятся примерно здесь:
+«/var/lib/connman/ethernet_080027a0c313_cable/settings». На
+каждом ПК путь будет меняться. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Различные
+варианты настроек и команд можете
+посмотреть <a href="https://raw.githubusercontent.com/maximalisimus/for-linux/master/Else_Info/Linux-Networks/connman-readme.txt">здесь</a>.
+Самая первая конфигурация – это копия
+после сохранения из графической утилиты.
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Сохранение
+настроек <span lang="en-US">netctl</span>.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">А
+вот здесь всё гораздо проще и сложнее
+одновременно. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Сложнее
+в том, что утилита нормально устанавливается
+только в <span lang="en-US">Archlinux</span>. Впихнуть
+её в <span lang="en-US">Debian</span> и другие системы,
+вроде <span lang="en-US">Fedora</span> мне так и не
+удалось. Однако, на основе кода из
+<span lang="en-US">Archlinux</span> я написал свой
+собственный <a href="https://raw.githubusercontent.com/maximalisimus/for-linux/master/Else_Info/Linux-Networks/debian-netctl/Makefile"><span lang="en-US">Makefile</span></a>
+для скачивания её из реп-я <span lang="en-US">arch</span>-а
+и установки в систему. Предусмотрел
+также и сборку утилиты для упаковки в
+тот или иной установщик. Имеется
+возможность установки в любой каталог,
+а также полного контроля над путями
+всех скриптов и шаблонов утилиты. 
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Работу
+утилиты не тестировал, но установки и
+де-инсталяции (удаления) проходят
+корректно в любой ОС <span lang="en-US">Linux</span>.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Настройки
+и команды утилиты можно посмотреть
+<a href="https://raw.githubusercontent.com/maximalisimus/for-linux/master/Else_Info/Linux-Networks/netctl-readme.txt">здесь</a>.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Ну
+а сегодня на этом всё. Надеюсь я хоть
+немного вас заинтересовал.</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm">Спасибо
+за внимание. Всем Удачи, до новых встреч,
+Пока-Пока!</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+<p class="western" style="line-height: 100%; margin-bottom: 0cm"><br/>
+
+</p>
+</body>
+</html>
