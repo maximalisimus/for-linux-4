@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 7.4.3.2 (Linux)"/>
+	<meta name="created" content="2020-04-09T22:39:19"/>
+	<meta name="changed" content="2023-01-19T20:29:03"/>
+	<meta name="AppVersion" content="15.0000"/>
+	<style type="text/css">
+		@page { size: 21.59cm 27.94cm; margin: 2cm }
+		p { color: #000000; line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.25cm; direction: ltr; background: transparent }
+		p.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: ru-RU }
+		p.cjk { font-family: "AR PL New Sung"; font-size: 12pt; so-language: zh-CN }
+		p.ctl { font-family: "DejaVu Sans"; font-size: 12pt; so-language: hi-IN }
+		h1 { color: #000000; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.21cm; direction: ltr; background: transparent; page-break-after: avoid }
+		h1.western { font-family: "Liberation Serif", sans-serif; font-size: 24pt; so-language: ru-RU; font-weight: bold }
+		h1.cjk { font-family: "AR PL New Sung"; font-size: 24pt; so-language: zh-CN; font-weight: bold }
+		h1.ctl { font-family: "Noto Sans Devanagari"; font-size: 24pt; so-language: hi-IN; font-weight: bold }
+		blockquote { color: #000000; text-align: left; orphans: 2; widows: 2; margin-left: 1cm; margin-right: 1cm; direction: ltr; background: transparent }
+		blockquote.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: ru-RU }
+		blockquote.cjk { font-family: "AR PL New Sung"; font-size: 12pt; so-language: zh-CN }
+		blockquote.ctl { font-family: "DejaVu Sans"; font-size: 12pt; so-language: hi-IN }
+		a:link { color: #000080; text-decoration: underline }
+		em { font-style: italic }
+	</style>
+</head>
+<body lang="ru-RU" text="#000000" link="#000080" vlink="#800000" dir="ltr"><p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<img src="universal_cert_add_html_f3c98a66b1e66026.gif" name="Фигура1" alt="Фигура1" align="left" width="26" height="26"/>
+<spacer type="block" align="left" width="26" height="41"><br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">openssl
+s_client -showcerts -connect google.com:443 &lt;/dev/null &gt;
+./certificate.txt</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -d sql:$HOME/.pki/nssdb -L</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -d sql:$HOME/.pki/nssdb -A -t &quot;TRUSTARGS&quot; -n
+certificate -i ./certificate.pem</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -d sql:$HOME/.pki/nssdb -A -t &quot;TRUSTARGS&quot; -n
+certificate -i ./certificate_ROOT_CA.pem</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -d sql:$HOME/.pki/nssdb -A -t &quot;TRUSTARGS&quot; -n
+certificate -i ./certificate_SUB_CA.pem</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">$
+sudo update-ca-certificates</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">#
+или</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">$
+sudo update-ca-trust</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate.pem&quot; -d sql:$HOME/.pki/nssdb</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate_ROOT_CA.pem&quot; -d sql:$HOME/.pki/nssdb</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate_SUB_CA.pem&quot; -d sql:$HOME/.pki/nssdb</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">#!/bin/bash</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+ 
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">certname=&quot;$1&quot;</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+ 
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">for
+certDB in $(find ~/ -name &quot;cert9.db&quot;); do</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	certdir=$(dirname
+${certDB});</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	for
+cert_files in ./*.pem; do</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">		certutil
+-A -n &quot;${certname}&quot; -t &quot;TCu,Cu,Tu&quot; -i
+&quot;${cert_files}&quot; -d sql:${certdir}</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	done</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">done</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">#!/usr/bin/env
+python3</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">#
+-*- coding: utf-8 -*-</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">import
+re</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">import
+pathlib</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">def
+main():</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	cert_file
+= './certificate.txt'</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	with
+open(cert_file, &quot;r&quot;) as f:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">		lines
+= f.readlines()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	onsearch1
+= 's:C'</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	onsearch2
+= 'CN = '</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	onsearch3
+= 'BEGIN CERTIFICATE'</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	onsearch4
+= 'END CERTIFICATE'</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	fname
+= ''</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	outname
+= ''</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	startname
+= True</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	startcert
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	endcert
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	iswrite
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	for
+item in lines:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">		if
+onsearch1 in item and startname:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			onstart
+= re.search(onsearch2, item).end()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			fname
+= item[onstart:].replace('*','_')</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			startname
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			outname
+= str(fname  +
+'.pem').replace(onsearch2,'').replace('*','_').replace('
+','_').replace('\n','')</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			outname
+= pathlib.Path(outname.replace(' ','_')).resolve()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			iswrite
+= True</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">		elif
+onsearch1 in item:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			onstart
+= re.search(onsearch2, item).end()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			outname
+= str(fname + ' ' + item[onstart:]  +
+'.pem').replace(onsearch2,'').replace('*','_').replace('
+','_').replace('\n','')</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			outname
+= pathlib.Path(outname).resolve()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			iswrite
+= True</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">		if
+iswrite:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">			with
+open(outname, 'a') as f:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">				if
+onsearch3 in item:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					startcert
+= True</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">				if
+onsearch4 in item:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					startcert
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					endcert
+= True</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">				if
+startcert:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					f.write(item)</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">				if
+endcert:</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					endcert
+= False</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">					f.write(item)</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">if
+__name__ == '__main__':</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt">	main()</font></font></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23bash"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#bash</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23Linux"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Linux</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23Windows"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Windows</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23Certificates"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Certificates</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23Cert"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#Cert</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23certDB"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#certDB</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23openssl"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#openssl</span></span></span></font></font></span></span></a></font><span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><font color="#000080"><a href="https://vk.com/feed?section=search&amp;q=%23GitBash"><span style="font-variant: normal"><span style="text-decoration: none"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">#GitBash</span></span></span></font></font></span></span></a></font><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+<br/>
+</font></font><img src="https://vk.com/emoji/e/e29c85.png" name="Изображение1" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Не
+безопасный веб-сайт - делаем
+доверенным.</span></span></span></font></font></font></span><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+<br/>
+</font></font><img src="https://vk.com/emoji/e/f09f9189.png" name="Изображение2" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Будь
+у вас Linux или Windows - вы столкнулись с
+проблемой - при открытии Российского
+веб-сайта он ругается на безопасность
+SSL сертификата. И чтобы вы не делали
+веб-сайт не становиться доверенным? Вам
+точно сюда!&nbsp;</span></span></span></font></font></font></span><img src="https://vk.com/emoji/e/e29d97.png" name="Изображение3" align="bottom" width="16" height="16" border="0"/>
+<font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+<br/>
+</font></font><img src="https://vk.com/emoji/e/f09f9189.png" name="Изображение4" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ну
+а с вами, как всегда Shadow.</span></span></span></font></font></font></span><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+</font></font><img src="https://vk.com/emoji/e/f09f939d.png" name="Изображение5" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Подписывайтесь
+на канал, ставьте лайки, комментируйте.</span></span></span></font></font></font></span><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><br/>
+</font></font><img src="https://vk.com/emoji/e/f09fa49d.png" name="Изображение6" align="bottom" width="16" height="16" border="0"/>
+<span style="font-variant: normal"><font color="#000000"><font face="Times Newer Roman, serif"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal">&nbsp;</span></font></font></font></span><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Всем
+Добра и Удачи!</span></span></span></font></font></font></span></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<h1 class="western" align="left"><span style="font-variant: normal"><font color="#000000"><font face="apple-system, BlinkMacSystemFont, Roboto, Open Sans, Helvetica Neue, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, sans-serif"><font size="2" style="font-size: 10pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Универсальное
+добавление сертификатов в доверенные</span></span></span></font></font></font></span></h1>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 1.06cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Итак.
+Будь у вас&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Linux</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;или&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Windows</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;-
+вы столкнулись с проблемой -&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">при
+открытии Российского веб-сайта</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;он
+ругается на&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">безопасность</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">SSL
+сертификата</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Дело
+в том, что большинство Российских
+веб-сайтов основывают свои&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">SSL</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;сертификаты
+по&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">ГОСТ</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-у
+не заботясь о пользователях и обновлении
+корневых сертификатов в старых&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Windows</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;системах
+и любых&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Linux</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-ах.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Вы
+конечно можете вручную скачать большинство
+нужных ISGR ROOT сертификатов,&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">но
+к сожалению</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+только с сайта&nbsp;</span></span></span></font></font></span><font color="#000080"><u><a href="https://vk.com/away.php?to=https%3A%2F%2Fletsencrypt.org%2Fcertificates%2F&amp;cc_key=" target="_blank"><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">letsencrypt</span></span></span></font></font></span></a></u></font><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+т.к. официальный сайт вообще перестал
+работать. Что на самом деле, даже печально.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Однако,
+вы скорее всего можете столкнуться с
+той же проблемой - и у того или иного
+Российского веб-сайта может быть
+совершенно другой ROOT центр сертификации,
+которого нет в&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">letsencrypt</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+хотя на нём же и основываясь. Да, и такое
+бывает. И сайт опять будет не безопасным.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">А
+хотелось бы универсально добавить
+Российский веб-сайт в доверенные.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Такой
+способ конечно существует! Забегу
+наперёд, и даже не один.</span></span></font></font></span></b></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Первое,
+что вам необходимо понять - это то, что
+у любого сайта существует не только
+сам&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">SSL-сертификат</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+но и&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">сертификат
+корневого центра</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;и&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">сертификат
+промежуточного центра</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;сертификации.
+Вероятно вы это знали. Однако, большинство
+способов дают лишь скачивание только
+одного&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">SSL-сертификата
+самого сайта</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+и не говорят как скачать сертификаты
+центров.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Это
+можно сделать 3-мя способами.</span></span></span></font></font></span></p>
+<ol>
+	<li><p class="western" style="orphans: 2; widows: 2; margin-bottom: 0.32cm">
+	<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Воспользоваться
+	браузером&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Mozila
+	Firefox</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+	При открытии страницы барузер также
+	будет ругаться, однако, там можно
+	посмотреть состав сертификата и главное
+	отличие от любого другого браузера -
+	на последней вкладке можно найти ссылки
+	на все сертификаты центров!&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Вот
+	это уже интересно.</span></span></font></font></span></b></p>
+	<li><p class="western" style="orphans: 2; widows: 2; margin-bottom: 0.32cm">
+	<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Можно
+	воспользоваться утилитой&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">openssl</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+	которая есть как в&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Linux</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">-е,
+	так и в&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">git-bash</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;на&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Windows</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+	Здесь не всё так просто и одновременно
+	проще не бывает.</span></span></span></font></font></span></p>
+	<li><p class="western" style="orphans: 2; widows: 2; margin-bottom: 0cm">
+	<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Посмотреть
+	состав сертификата и вручную поискать
+	и скачать сертификаты центров с
+	помощью&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Google</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+	Этот способ вообще не катит, но вполне
+	возможен.</span></span></span></font></font></span></p>
+</ol>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+начала и примера скачаем все сертификаты
+(и сайта и центров) в один файл, например
+сайта&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Google</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Почему бы и нет.</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+openssl s_client -showcerts -connect google.com:443 &lt;/dev/null &gt;
+./certificate.txt</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Итак,
+файл&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">certificate.txt</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;есть.
+Надо разделить его на сертификаты сайта
+и сертификаты центров, иначе вы не
+сможете добавить их в доверенные, т.к.
+там содержится вся информация обо всех
+сертификатах. И даже если вы по инструкции
+других сайтов оставите только сами
+сертификаты последовательно друг за
+другом по типу pkcs7 или списков - вы всё
+равно не сможете добавить их в доверенные.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Либо
+мы можем вручную создать нужные файлы
+и вручную добавить получившиеся
+сертификаты (начиная со строк «BEGIN
+CERTIFICATE»и заканчивая строками «END
+CERTIFICATE») в разные файлы + вручную
+импортировать в систему.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Либо
+мы сделаем это автоматически - скриптами.
+Вот это уже интереснее.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Поэтому
+создадим 2 скрипта для обработки
+полученных сертификатов. (</span></span></span></font></font></span><em><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Python
+скрипт будет работать и в Windows).</span></span></span></font></font></span></em></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+разделения файла на сертификаты создадим
+скрипт со следующим кодом. пусть это
+будет файл&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">convert.py</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;со
+следующим содержимым:</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">#!/usr/bin/env
+python3</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">#
+-*- coding: utf-8 -*-</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">import
+re</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">import
+pathlib</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">def
+main():</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">cert_file
+= './certificate.txt'</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">with
+open(cert_file, &quot;r&quot;) as f:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">lines
+= f.readlines()</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onsearch1
+= 's:C'</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onsearch2
+= 'CN = '</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onsearch3
+= 'BEGIN CERTIFICATE'</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onsearch4
+= 'END CERTIFICATE'</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">fname
+= ''</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">outname
+= ''</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">startname
+= True</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">startcert
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">endcert
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">iswrite
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">for
+item in lines:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+onsearch1 in item and startname:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onstart
+= re.search(onsearch2, item).end()</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">fname
+= item[onstart:].replace('*','_')</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">startname
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">outname
+= str(fname +
+'.pem').replace(onsearch2,'').replace('*','_').replace('
+','_').replace('\n','')</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">outname
+= pathlib.Path(outname.replace(' ','_')).resolve()</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">iswrite
+= True</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">elif
+onsearch1 in item:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">onstart
+= re.search(onsearch2, item).end()</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">outname
+= str(fname + ' ' + item[onstart:] +
+'.pem').replace(onsearch2,'').replace('*','_').replace('
+','_').replace('\n','')</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">outname
+= pathlib.Path(outname).resolve()</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">iswrite
+= True</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+iswrite:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">with
+open(outname, 'a') as f:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+onsearch3 in item:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">startcert
+= True</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+onsearch4 in item:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">startcert
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">endcert
+= True</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+startcert:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">f.write(item)</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+endcert:</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">endcert
+= False</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">f.write(item)</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">if
+__name__ == '__main__':</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">main()</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Отступы
+проставьте вручную, но я постараюсь
+прикрепить оба файла скрипта.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Естественно
+мы не просто так сохраняли в
+файл&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">certificate.txt</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Просто, чтобы скрипту было проще - если
+вам нужно модифицируйте с добавлением
+аргументов командной строки. Итак,
+запускаем.</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+python ./convert.py</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">У
+вас должно появится 3 новых файла. В
+случае примера с google - названия начинаются
+с&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">_.google.com</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.
+Вот это название и нужно скопировать,
+оно далее нам понадобиться.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ручной
+импорт корневых сертификатов в&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Windows</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;не
+рассматривается.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Далее
+вы можете воспользоваться&nbsp;</span></span></span></font></font></span><font color="#000080"><u><a href="https://vk.com/away.php?to=https%3A%2F%2Flosst.pro%2Fustanovka-sertifikatov-v-ubuntu&amp;cc_key=" target="_blank"><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">универсальной
+инструкцией</span></span></span></font></font></span></a></u></font><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;добавления
+корневых сертификатов в разные браузеры
+вручную, что для&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Windows</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+что для&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Linux</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;инструкция
+будет одинаковой - предоставляется
+от&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Ubuntu.</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">НО
+для каждого браузера раздельно.</span></span></font></font></span></b></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Либо,&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">конкретно
+для Linux</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">,
+вы можете пойти по пути наименьшего
+сопротивления и добавить все сертификаты
+разом во все базы данных всех браузеров
+и всех&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">NSS</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;баз.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Для
+последнего воспользуемся небольшим
+скриптом. Назовём его&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">CAtoCert9.sh</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">.</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">#!/bin/bash</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">certname=&quot;$1&quot;</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">for
+certDB in $(find ~/ -name &quot;cert9.db&quot;); do</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">certdir=$(dirname
+${certDB});</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">for
+cert_files in ./*.pem; do</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">certutil
+-A -n &quot;${certname}&quot; -t &quot;TCu,Cu,Tu&quot; -i
+&quot;${cert_files}&quot; -d sql:${certdir}</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">done</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">done</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Запускаем
+и не забываем добавить правильное
+название + обновляем список сертификатов
+системы:</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+chmod +x ./CAtoCert9.sh</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+sudo ./CAtoCert9.sh _.google.com</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+sudo update-ca-certificates # Для Debian или Fedora</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">#
+или для Arch-е подобных систем</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+sudo update-ca-trust</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+необходимо проверить и удостовериться,
+что сертификаты добавились во все&nbsp;</span></span></span></font></font></span><b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">NSS</span></span></font></font></span></b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">&nbsp;базы:</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">sudo
+certutil -d sql:$HOME/.pki/nssdb -L</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<b><span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal">Далее
+- на всякий случай - команда ручного
+добавления сертификатов. НО для одной
+из NSS баз сертификатов. Т.е. для каждого
+браузера такую базу надо найти и повторить
+команды для каждой.</span></span></font></font></span></b></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate.pem&quot; -d sql:$HOME/.pki/nssdb</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate_SUB_CA.pem&quot; -d sql:$HOME/.pki/nssdb</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">sudo
+certutil -A -n &quot;certificate_name&quot; -t &quot;TCu,Cu,Tu&quot;
+-i &quot;certificate_ROOT_CA.pem&quot; -d sql:$HOME/.pki/nssdb</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Опять
+таки, не забываем обновлять сертификаты
+системы.</span></span></span></font></font></span></p>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-top: 0.56cm; margin-bottom: 0.56cm; border-top: none; border-bottom: none; border-left: 1.50pt solid #000000; border-right: none; padding-top: 0cm; padding-bottom: 0cm; padding-left: 0.49cm; padding-right: 0cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+sudo update-ca-certificates # Для Debian или Fedora</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">#
+или для Arch-е подобных систем</span></i></span></font></font></blockquote>
+<blockquote class="western" style="orphans: 2; widows: 2; margin-left: 0cm; margin-right: 0cm; margin-bottom: 0.56cm">
+<font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><i><span style="font-weight: normal">$
+sudo update-ca-trust</span></i></span></font></font></blockquote>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Теперь
+можно запускать любой браузер и проверять,
+что ваш сайт является доверенным.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Ну,
+а сегодня на этом всё. Надеюсь я вас
+сегодня заинтересовал.</span></span></span></font></font></span></p>
+<p class="western" style="orphans: 2; widows: 2; margin-top: 0.64cm; margin-bottom: 0cm">
+<span style="font-variant: normal"><font face="PT Serif, Noto Sans Armenian, Noto Sans Bengali, Noto Sans Cherokee, Noto Sans Devanagari, Noto Sans Ethiopic, Noto Sans Georgian, Noto Sans Hebrew, Noto Sans Kannada, Noto Sans Khmer, Noto Sans Lao, Noto Sans Osmanya, Noto Sans Tamil, Noto Sans Telugu, Noto Sans Thai, serif"><font size="4" style="font-size: 14pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal">Всем
+удачи, до встречи, Пока-пока!</span></span></span></font></font></span></p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+<p class="western" align="left" style="line-height: 100%; margin-bottom: 0cm">
+<br/>
+
+</p>
+</body>
+</html>
