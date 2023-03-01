@@ -1,6 +1,6 @@
 #!/bin/bash
-export WINEPREFIX=/home/mikl/.wine64/
-export WINEARCH=win64
+export WINEPREFIX=~/.wine32/
+export WINEARCH=win32
 #wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 #chmod +x winetricks
 winetricks corefonts allfonts
