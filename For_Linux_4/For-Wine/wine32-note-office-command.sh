@@ -3,7 +3,7 @@ export WINEPREFIX=/home/mikl/.wine64/
 export WINEARCH=win64
 #wget https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 #chmod +x winetricks
-winetricks corefonts allfonts 
+winetricks corefonts allfonts
 winetricks msxml3 msxml4 msxml6
 winetricks vcrun2005 gdiplus riched30
 winetricks dotnet11 dotnet20 dotnet20sp2 dotnet30 dotnet35 dotnet40 dotnet45
