@@ -4,6 +4,10 @@ https://github.com/kkkgo/vlmcsd
 https://github.com/kkkgo/vlmcsd.git
 https://github.com/kkkgo/vlmcsd/releases
 
+./vlmcsd-x86-musl-static -L 127.0.0.1 -P 1688
+pgrep vlmcsd
+pkill vlmcsd
+
 $./vlmcsd
 $ netstat -ntlp | grep LISTEN
 
@@ -82,11 +86,11 @@ slmgr.vbs -ato
 Office
 cd C:\Program Files\Microsoft Office\Office15
 cscript ospp.vbs /inpkey:YC7DK-G2NP3-2QQC3-J6H88-GVGXT
-cscript ospp.vbs /sethst:kms.srv.crsoo.com
+cscript ospp.vbs /sethst:127.0.0.1
 cscript ospp.vbs /act
 
 cd C:\Program Files\Microsoft Office\Office16
-cscript ospp.vbs /sethst: 192.168.14.147
+cscript ospp.vbs /sethst: 127.0.0.1
 cscript ospp.vbs /act
 
 cscript ospp.vbs /dstatusall
