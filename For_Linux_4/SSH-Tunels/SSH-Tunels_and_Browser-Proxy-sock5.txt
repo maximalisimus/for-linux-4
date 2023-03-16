@@ -25,6 +25,7 @@ ssh -P 2222 user@192.168.0.150
  
 AllowStreamLocalForwarding yes
 AllowTcpForwarding remote
+GatewayPorts yes
  
 Linux:
  
