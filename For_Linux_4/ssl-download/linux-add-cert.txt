@@ -1,0 +1,18 @@
+
+
+openssl x509 -inform PEM -in root.pem -out root.crt
+
+/etc/ca-certificates/trust-source/anchors/
+
+/etc/ssl/certs/
+
+/usr/share/ca-certificates
+
+sudo cp ./*.pem /etc/ssl/certs/
+sudo cp ./*.crt /etc/ca-certificates/trust-source/anchors/
+
+sudo update-ca-trust
+sudo trust extract-compat
+sudo update-ca-trust extract
+
+chromium --ignore-certificate-errors
