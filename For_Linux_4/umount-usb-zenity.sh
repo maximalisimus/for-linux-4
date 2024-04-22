@@ -90,7 +90,9 @@ case "${_language[*]}" in
 		;;
 esac
 #
-_the_icon="/home/mikl/programs/flashdrive-png.png"
+ABSOLUT_FILENAME=$(readlink -e "$0")
+filesdir=$(dirname "$ABSOLUT_FILENAME")
+_the_icon="${filesdir}/flashdrive-png.png"
 SYSTEM=$(uname -s)
 VERSION=$(uname -r)
 ARCHI=$(uname -m)
