@@ -1,6 +1,11 @@
 #!/bin/bash
 #
-# $ sudo usermod -aG disk,storage mikl
+# $ sudo usermod -aG disk,storage USER
+# or
+# $ sudo /usr/sbin/usermod -aG disk,storage USER
+#
+_icon_name="flashdrive-png"
+_icon_ext="png"
 #
 _language=$(locale | cut -d '"' -f2 | cut -d '.' -f1 | grep -Evi "=" | sed '/_/!d' | sort -u | cut -d '_' -f1 | tr '[:upper:]' '[:lower:]' | sed '2,$d')
 #
@@ -92,7 +97,7 @@ esac
 #
 ABSOLUT_FILENAME=$(readlink -e "$0")
 filesdir=$(dirname "$ABSOLUT_FILENAME")
-_the_icon="${filesdir}/flashdrive-png.png"
+_the_icon="${filesdir}/${_icon_name}.${_icon_ext}"
 SYSTEM=$(uname -s)
 VERSION=$(uname -r)
 ARCHI=$(uname -m)
